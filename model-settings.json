@@ -1,0 +1,8 @@
+{
+  "name": "logistic-regression",
+  "implementation": "mlserver_sklearn.SKLearnModel",
+  "parameters": {
+    "uri": "./logistic-regression.joblib",
+    "version": "v0.1.0"
+  }
+}
