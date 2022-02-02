@@ -10,8 +10,8 @@
 
 | Algorithm | training accuracy on buttons.txt | testing accuracy on bandsaw.txt |
 | ----------- | ----------- | ----------- |
-| RandomForestClassifier | 0.9996324556373954 | 0.9985213846472742 |
 | DecisionTreeClassifier | 0.9999852982254959 | 0.9985213846472742 |
+| RandomForestClassifier | 0.9996324556373954 | 0.9985213846472742 |
 | KNeighborsClassifier | 0.9880474573280995 | 0.8084571270641885 |
 | SGDClassifier | 0.9607462620738323 | 0.8758377668762524 |
 | LogisticRegression | 0.9607315602993282 | 0.8758377668762524 |
