@@ -12,8 +12,9 @@ X = data['arr_0'][:, 1:]
 y = data['arr_0'][:, 0]
 random_value = randint(0, 10)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=random_value)
-x = X_train
-# x = array([[0.04, 1.04, 0.04, 0.00, 0.10, 0.00]])
+# x = X_train
+
+x = array([[0.0801122784614563, 0.9424072504043579, 0.0826762318611145, 0.0, 0.0, 0.0]])
 inference_request = {
     "inputs": [
         {
@@ -28,20 +29,4 @@ inference_request = {
 endpoint = "http://localhost:8080/v2/models/logistic-regression/versions/v0.1.0/infer"
 response = requests.post(endpoint, json=inference_request)
 
-response.json()
 print(response.json())
-
-# import torch
-#
-# x = torch.arange(12).view(4, 3)
-# print(x, x.stride())
-# print(x.is_contiguous())
-#
-# y = x.t()
-# print(y, y.stride())
-# print(y.is_contiguous())
-#
-# y = y.contiguous()
-# print(y.stride())
-# print(y.is_contiguous())
-# y = y.view(-1)

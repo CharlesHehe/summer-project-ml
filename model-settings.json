@@ -2,7 +2,7 @@
   "name": "logistic-regression",
   "implementation": "mlserver_sklearn.SKLearnModel",
   "parameters": {
-    "uri": "./logistic-regression.joblib",
+    "uri": "./DecisionTreeClassifier.joblib",
     "version": "v0.1.0"
   }
 }

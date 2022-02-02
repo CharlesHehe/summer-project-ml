@@ -29,20 +29,42 @@ import binascii
 
 import struct
 
-struct_fmt = 'i'+'f' * 6  # int[5], float, byte[255]
+struct_fmt = 'i' + 'f' * 6  # int[5], float, byte[255]
 struct_len = struct.calcsize(struct_fmt)
 struct_unpack = struct.Struct(struct_fmt).unpack_from
 results = []
+buttons = []
+bandsaw = []
 
-with open("raw.txt", "rb") as f:
+# , open("bandsaw.txt", "rb") as f2
+with open("training.txt", "rb") as f1, open("bandsaw.txt", "rb") as f2:
     while True:
-        data = f.read(28)
+        data = f1.read(28)
         if not data:
             break
-        s = struct_unpack(data)
-        results.append(s)
-X = unique(results, axis=0)
-savez_compressed('data.npz', X)
+        s = list(struct_unpack(data))
+        if s[4:] == [0.0, 0.0, 0.0]:
+            s[0] = 0
+            buttons.append(s)
+        else:
+            s[0] = 1
+            buttons.append(s)
+    while True:
+        data = f2.read(28)
+        if not data:
+            break
+        s = list(struct_unpack(data))
+        if s[4:] == [0.0, 0.0, 0.0]:
+            s[0] = 0
+            bandsaw.append(s)
+        else:
+            s[0] = 1
+            bandsaw.append(s)
+
+buttons = unique(buttons, axis=0)
+bandsaw = unique(bandsaw, axis=0)
+savez_compressed('buttons.npz', buttons)
+savez_compressed('bandsaw.npz', bandsaw)
 # file = open("raw.txt", "rb")
 # while 1:
 #     c = struct.unpack('i', file.read(4))
