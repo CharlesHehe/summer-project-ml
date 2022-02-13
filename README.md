@@ -8,11 +8,11 @@
 2. run ```python preprocessing.py``` This is to process all raw datasets and output "train_data.npz" for further training.
 3. run ```python main.py knn``` to train knn model. The command "python main.py + model_name" need to use model name as argument. All model names are documented in model_list.txt
 
-<img src="https://user-images.githubusercontent.com/45914103/153745798-aa0d7470-d2ca-44b5-8ea1-e7fd5c6570f6.png" width="200" height="100">
+<img src="https://user-images.githubusercontent.com/45914103/153745798-aa0d7470-d2ca-44b5-8ea1-e7fd5c6570f6.png" width="200" height="150">
 
 4. Models that have trained will be stored under "models" directory.
 
-<img src="https://user-images.githubusercontent.com/45914103/153745553-1b3da0a4-b5be-4f7d-90e4-306f50286431.png" width="200" height="100">
+<img src="https://user-images.githubusercontent.com/45914103/153745553-1b3da0a4-b5be-4f7d-90e4-306f50286431.png" width="200" height="150">
 
 5. ```mlserver start .``` to start a listening server
 6. make requests for prediction ```python test.py```
