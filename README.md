@@ -2,7 +2,7 @@
 
 0. all raw datasets should be put into "raw_data" directory
 
-<img src="https://user-images.githubusercontent.com/45914103/153745493-497b32b7-f7cb-420c-9533-b079b88519dc.png" width="100" height="100">
+<img src="https://user-images.githubusercontent.com/45914103/153745493-497b32b7-f7cb-420c-9533-b079b88519dc.png" width="200" height="100">
 ![image](https://user-images.githubusercontent.com/45914103/153745493-497b32b7-f7cb-420c-9533-b079b88519dc.png =250x)
 
 1. run ```pip install -r requirements.txt```
