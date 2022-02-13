@@ -1,0 +1,7 @@
+sgd
+knn
+logistic_regression
+decision_tree
+random_forest
+SVM
+naive_bayes
