@@ -3,5 +3,5 @@ knn
 logistic_regression
 decision_tree
 random_forest
-SVM
+svm
 naive_bayes
