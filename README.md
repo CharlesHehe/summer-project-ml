@@ -8,7 +8,7 @@
 2. run ```python preprocessing.py``` This is to process all raw datasets and output "train_data.npz" for further training.
 3. run ```python main.py knn``` to train knn model. The command "python main.py + model_name" need to use model name as argument. All model names are documented in model_list.txt
 
-![image](https://user-images.githubusercontent.com/45914103/153745596-6700584a-bf62-4ff1-91f7-09f6e75b14ba.png)
+![image](https://user-images.githubusercontent.com/45914103/153745798-aa0d7470-d2ca-44b5-8ea1-e7fd5c6570f6.png)
 
 4. Models that have trained will be stored under "models" directory.
 
