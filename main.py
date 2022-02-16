@@ -175,15 +175,3 @@ print(f"Naive Bayes: {accuracy}")
 
 # save model
 save_model(model)
-
-""" SGDClassifier
-"""
-model_name = "sgd"
-model = initialize_train_model(model_name, X_train, y_train)
-
-# test model
-accuracy = model.score(X_test, y_test)
-print(f"SGDClassifier: {accuracy}")
-
-# save model
-save_model(model)
