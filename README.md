@@ -1,12 +1,15 @@
 # summer-project-ml
 
-0. all raw datasets should be put into "raw_data" directory
+0. run ```pip install -r requirements.txt```
+
+
+
+1. all raw datasets should be put into "raw_data" directory
 
 <img src="https://user-images.githubusercontent.com/45914103/153745493-497b32b7-f7cb-420c-9533-b079b88519dc.png" width="200" height="100">
 
-1. run ```pip install -r requirements.txt```
 2. run ```python preprocessing.py``` This is to process all raw datasets and output "train_data.npz" for further training.
-3. run ```python main.py knn``` to train knn model. The command "python main.py + model_name" need to use model name as argument. All model names are documented in model_list.txt
+3. run ```python main.py``` to train all models. All model names are documented in model_list.txt
 
 <img src="https://user-images.githubusercontent.com/45914103/153745798-aa0d7470-d2ca-44b5-8ea1-e7fd5c6570f6.png" width="200" height="150">
 
@@ -15,7 +18,7 @@
 <img src="https://user-images.githubusercontent.com/45914103/153745553-1b3da0a4-b5be-4f7d-90e4-306f50286431.png" width="200" height="150">
 
 5. ```mlserver start .``` to start a listening server
-6. make requests for prediction ```python test.py```
+6. make requests for prediction ```python test.py``` using mlserver
 
 
 | Algorithm | accuracy |
