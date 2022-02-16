@@ -10,6 +10,31 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import SGDClassifier
 import sys
+from numpy import unique
+import os
+import struct
+
+struct_fmt = 'i' + 'f' * 6  # int[5], float, byte[255]
+struct_len = struct.calcsize(struct_fmt)
+struct_unpack = struct.Struct(struct_fmt).unpack_from
+results = []
+train_data = []
+
+files = os.listdir('./raw_data')
+
+for file in files:
+    with open(f"./raw_data/{file}", "rb") as f1:
+        while True:
+            data = f1.read(28)
+            if not data:
+                break
+            s = list(struct_unpack(data))
+            train_data.append(s)
+
+train_data = unique(train_data, axis=0)
+
+
+# savez_compressed('train_data.npz', train_data)
 
 
 def save_model(clf):
@@ -37,7 +62,7 @@ def initialize_train_model(model_name, X_train, y_train):
     if model_name == "logistic_regression":
         """ LogisticRegression
         """
-        model_ft = LogisticRegression(random_state=random_value)
+        model_ft = LogisticRegression(solver='lbfgs', max_iter=1000)
         model_ft.fit(X_train, y_train)
     if model_name == "decision_tree":
         """ DecisionTreeClassifier
@@ -64,25 +89,101 @@ def initialize_train_model(model_name, X_train, y_train):
     return model_ft
 
 
-model_name = sys.argv[1]
+# model_name = sys.argv[1]
 
 # read dataset
-buttons = np_load('train_data.npz')
+# buttons = np_load('train_data.npz')
 # # training dataset
-X_buttons = buttons['arr_0'][:, 1:]
+X_buttons = train_data[:, 1:]
 # # testing dataset
-y_buttons = buttons['arr_0'][:, 0]
+# y_buttons = train_data['arr_0'][:, 0]
+y_buttons = train_data[:, 0]
 random_value = randint(0, 10)
 X_train, X_test, y_train, y_test = train_test_split(X_buttons, y_buttons, test_size=0.25, random_state=random_value)
 
+""" SGDClassifier
+"""
+model_name = "sgd"
 model = initialize_train_model(model_name, X_train, y_train)
 
 # test model
 accuracy = model.score(X_test, y_test)
-print(f"training: {accuracy}")
+print(f"SGDClassifier: {accuracy}")
 
 # save model
 save_model(model)
 # load model
-model_name = type(model).__name__
-load_model(f"./models/{model_name}.joblib")
+# model_name = type(model).__name__
+# load_model(f"./models/{model_name}.joblib")
+
+""" KNeighborsClassifier
+"""
+model_name = "knn"
+model = initialize_train_model(model_name, X_train, y_train)
+
+# test model
+accuracy = model.score(X_test, y_test)
+print(f"KNeighborsClassifier: {accuracy}")
+
+# save model
+save_model(model)
+
+""" LogisticRegression
+"""
+model_name = "logistic_regression"
+model = initialize_train_model(model_name, X_train, y_train)
+
+# test model
+accuracy = model.score(X_test, y_test)
+print(f"LogisticRegression: {accuracy}")
+
+# save model
+save_model(model)
+
+""" DecisionTreeClassifier
+"""
+model_name = "decision_tree"
+model = initialize_train_model(model_name, X_train, y_train)
+
+# test model
+accuracy = model.score(X_test, y_test)
+print(f"DecisionTreeClassifier: {accuracy}")
+
+# save model
+save_model(model)
+
+""" RandomForestClassifier
+"""
+model_name = "random_forest"
+model = initialize_train_model(model_name, X_train, y_train)
+
+# test model
+accuracy = model.score(X_test, y_test)
+print(f"RandomForestClassifier: {accuracy}")
+
+# save model
+save_model(model)
+
+""" Naive Bayes
+"""
+model_name = "naive_bayes"
+model = initialize_train_model(model_name, X_train, y_train)
+
+# test model
+accuracy = model.score(X_test, y_test)
+print(f"Naive Bayes: {accuracy}")
+
+# save model
+save_model(model)
+
+""" SGDClassifier
+"""
+model_name = "sgd"
+model = initialize_train_model(model_name, X_train, y_train)
+
+# test model
+accuracy = model.score(X_test, y_test)
+print(f"SGDClassifier: {accuracy}")
+
+# save model
+save_model(model)
