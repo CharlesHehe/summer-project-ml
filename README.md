@@ -18,7 +18,7 @@
 
 4. replace the "model_name".joblib with models under "model" directory.
 
-<img src="https://user-images.githubusercontent.com/45914103/154376956-cc07d5f1-8c84-49f6-a13c-d6005e927159.png" width="200" height="150">
+<img src="https://user-images.githubusercontent.com/45914103/154376956-cc07d5f1-8c84-49f6-a13c-d6005e927159.png" width="300" height="150">
 
 
 5. ```mlserver start .``` to start a listening server
