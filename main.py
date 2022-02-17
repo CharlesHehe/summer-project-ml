@@ -29,7 +29,8 @@ for file in files:
             if not data:
                 break
             s = list(struct_unpack(data))
-            train_data.append(s)
+            if s[0] != 0:
+                train_data.append(s)
 
 train_data = unique(train_data, axis=0)
 
@@ -39,7 +40,7 @@ train_data = unique(train_data, axis=0)
 
 def save_model(clf):
     model_name = type(clf).__name__
-    dump(clf, f"./models/{model_name}.joblib")
+    dump(clf, f"./models/{model_name}_none_zero.joblib")
 
 
 def load_model(model_file_name):
